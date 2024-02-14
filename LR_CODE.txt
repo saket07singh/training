@@ -1,0 +1,29 @@
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+#generating random indices and  costs for apartments in the range of 1 to 100 considering 4 apartments
+
+indices= np.random.randint(1, 100, size=(4,1))
+indices
+
+#generating random costs in the range 100,000 to 200,000
+
+costs= np.random.randint(100000, 200000, size=(4,1))
+costs
+
+#create a linreg model
+
+linreg= LinearRegression()
+
+#train the model
+
+linreg.fit(indices,costs)
+
+#generate a random index for the fifth apartment
+
+
+fifth_apartment_index = np.array([[np.random.randint(1, 100)]])
+
+fifth_apartment_cost = linreg.predict(fifth_apartment_index)
+
+print(f"The estimated cost of the fifth apartment is: {fifth_apartment_cost[0, 0]:.2f}")
